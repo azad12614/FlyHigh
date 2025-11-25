@@ -20,18 +20,17 @@
         ><img src="./assets/images/Logo.png" alt="FLyHigh Logo" class="logo" />
       </a>
 
-      <input type="checkbox" id="nav-toggle" class="nav-toggle" />
-      <label for="nav-toggle" class="nav-toggle-label">
+      <button id="nav-toggle" class="nav-toggle">
         <span></span>
-      </label>
+      </button>
 
-      <ul class="nav-menu">
+      <ul id="nav-menu" class="nav-menu">
         <li><a href="#HERO">Home</a></li>
         <li><a href="#ABOUT">About Us</a></li>
         <li><a href="#DESTINATIONS">Destinations</a></li>
         <li><a href="#PACKAGES">Packages</a></li>
         <li><a href="#CONTACT">Contact</a></li>
-        <li><a href="#" class="nav-button">Book Now</a></li>
+        <li><a href="#" class="button">Book Now</a></li>
       </ul>
     </nav>
 
@@ -39,7 +38,7 @@
       <h1>
         <span>Explore</span><span>Your World</span><span>with FLyHigh</span>
       </h1>
-      <button class="hero-button">↪ Book Now</button>
+      <button class="button">↪ Book Now</button>
     </section>
 
     <section id="ABOUT">
@@ -56,7 +55,11 @@
             options, and flexible booking so every trip on water becomes
             unforgettable.
           </p>
-          <button class="about-button">Learn More</button>
+          <button class="button">
+            <a href="https://sharetrip.net/holiday" target="_blank">
+              Learn More
+            </a>
+          </button>
         </div>
         <div class="about-image">
           <img src="./assets/images/About1.png" alt="About FLyHigh" />
@@ -90,7 +93,7 @@
             Home to the longest natural sea beach in the world, perfect for long
             walks and enjoying the Bay of Bengal.
           </p>
-          <button class="destination-btn">
+          <button class="button">
             <a
               href="https://www.tripadvisor.com/Tourism-g667467-Cox_s_Bazar_Chittagong_Division-Vacations.html"
               target="_blank"
@@ -109,7 +112,7 @@
             The world's largest coral reef system, offering unparalleled
             snorkeling and scuba diving to explore diverse marine life.
           </p>
-          <button class="destination-btn">
+          <button class="button">
             <a
               href="https://www.tripadvisor.com/Tourism-g255074-Great_Barrier_Reef_Queensland-Vacations.html"
               target="_blank"
@@ -125,7 +128,7 @@
             A gorgeous spot that’s a convenient day trip from Milan, Lake Como
             recently earned fame as home to Hollywood star George Clooney.
           </p>
-          <button class="destination-btn">
+          <button class="button">
             <a
               href="https://www.tripadvisor.com/Tourism-g187833-Lake_Como_Lombardy-Vacations.html"
               target="_blank"
@@ -142,7 +145,7 @@
             waters of the Indian Ocean, the Maldives are an island-hopper’s
             dream.
           </p>
-          <button class="destination-btn">
+          <button class="button">
             <a
               href="https://www.tripadvisor.com/Tourism-g293953-Maldives-Vacations.html"
               target="_blank"
@@ -158,7 +161,7 @@
             The world's deepest and oldest freshwater lake, known for its
             crystal-clear waters and unique biodiversity.
           </p>
-          <button class="destination-btn">
+          <button class="button">
             <a
               href="https://www.tripadvisor.com/Tourism-g298526-Lake_Baikal_Siberian_District-Vacations.html"
               target="_blank"
@@ -174,7 +177,7 @@
             Seattle mixes vibrant urban culture with easy access to mountains,
             and Puget Sound, making it ideal for both city and outdoor lovers.
           </p>
-          <button class="destination-btn">
+          <button class="button">
             <a
               href="https://www.tripadvisor.com/Tourism-g60878-Seattle_Washington-Vacations.html"
               target="_blank"
@@ -202,7 +205,7 @@
             </p>
           </div>
 
-          <button class="package-btn">
+          <button class="button">
             <a
               href="https://sharetrip.net/package-search?cityCodes=[%2215821%22]&offset=0&limit=10"
               target="_blank"
@@ -228,7 +231,7 @@
             </p>
           </div>
 
-          <button class="package-btn">
+          <button class="button">
             <a
               href="https://www.getyourguide.com/airlie-beach-l868/from-airlie-beach-great-barrier-reef-pontoon-experience-t132270/"
               target="_blank"
@@ -255,7 +258,7 @@
           </p>
         </div>
 
-        <button class="package-btn">
+        <button class="button">
           <a
             href="https://www.getyourguide.com/port-said-governorate-l1006/from-port-said-day-tour-to-the-pyramids-the-nile-t452504/"
             target="_blank"
@@ -341,5 +344,31 @@
       </div>
       <div class="copyright">&copy; 2025 FLyHigh. All rights reserved.</div>
     </section>
+    <script>
+      let isMenuOpen = false;
+
+      const navToggle = document.getElementById("nav-toggle");
+      const navMenu = document.getElementById("nav-menu");
+      const navItems = document.querySelectorAll(".nav-menu li a");
+
+      navToggle.addEventListener("click", () => {
+        isMenuOpen = !isMenuOpen;
+        if (isMenuOpen) {
+          navToggle.classList.add("nav-open");
+          navMenu.classList.add("nav-menu-open");
+        } else {
+          navToggle.classList.remove("nav-open");
+          navMenu.classList.remove("nav-menu-open");
+        }
+      });
+
+      navItems.forEach((item) => {
+        item.addEventListener("click", () => {
+          isMenuOpen = false;
+          navToggle.classList.remove("nav-open");
+          navMenu.classList.remove("nav-menu-open");
+        });
+      });
+    </script>
   </body>
 </html>
