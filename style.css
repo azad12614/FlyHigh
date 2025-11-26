@@ -38,14 +38,14 @@ body {
 }
 
 @media (max-width: 1024px) {
-  .hero-button {
+  .button {
     font-size: 1.2rem;
     padding: 10px 25px;
   }
 }
 
 @media (max-width: 512px) {
-  .hero-button {
+  .button {
     font-size: 1rem;
     padding: 8px 20px;
   }
